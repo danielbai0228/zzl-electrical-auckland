@@ -133,6 +133,19 @@ export default function HomePage() {
               <ShieldCheck aria-hidden="true" size={17} />
               Licensed electrician based on {site.baseArea}
             </div>
+            <a
+              className="mb-5 grid w-full max-w-2xl gap-2 rounded-md border-2 border-slate-950 bg-amber-400 p-3 text-slate-950 shadow-lg shadow-amber-900/10 sm:grid-cols-[auto_1fr_auto] sm:items-center"
+              href="#pricing"
+            >
+              <span className="text-3xl font-black">$55</span>
+              <span className="text-sm font-black leading-5">
+                Downlights from $55. General call-out from $120 including the
+                first 30 minutes.
+              </span>
+              <span className="rounded-md bg-slate-950 px-3 py-2 text-center text-xs font-black uppercase text-white">
+                View prices
+              </span>
+            </a>
             <h1 className="max-w-3xl text-4xl font-black leading-[1.05] tracking-normal text-slate-950 sm:text-5xl lg:text-6xl">
               ZZL Electrical Ltd licensed Auckland electrician, 24/7 response
             </h1>
@@ -151,6 +164,27 @@ export default function HomePage() {
                 <Mail aria-hidden="true" size={18} />
                 Email for a quote
               </a>
+            </div>
+            <div className="mt-6 rounded-md border-2 border-amber-400 bg-slate-950 p-4 text-white shadow-xl shadow-amber-900/10">
+              <div className="grid gap-3 sm:grid-cols-[auto_1fr_auto] sm:items-center">
+                <div>
+                  <p className="text-xs font-black uppercase text-amber-300">
+                    Transparent prices
+                  </p>
+                  <p className="mt-1 text-2xl font-black">$55 downlights</p>
+                </div>
+                <p className="text-sm leading-6 text-slate-200">
+                  General call-out from <strong>$120</strong> including the
+                  first 30 minutes. Common job prices are listed below before
+                  you call.
+                </p>
+                <a
+                  className="inline-flex min-h-11 items-center justify-center rounded-md bg-amber-400 px-4 text-sm font-black text-slate-950 transition hover:bg-amber-300"
+                  href="#pricing"
+                >
+                  See prices
+                </a>
+              </div>
             </div>
             <div className="mt-5 flex flex-wrap gap-2">
               {proofPoints.slice(0, 4).map((point) => (
@@ -365,39 +399,63 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="pricing" className="border-y border-slate-200 bg-white py-16 sm:py-20">
+      <section
+        id="pricing"
+        className="border-y border-amber-300 bg-amber-50 py-16 sm:py-20"
+      >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <div>
-              <p className="text-sm font-black uppercase text-amber-600">
-                Transparent pricing
+              <p className="inline-flex rounded-md bg-slate-950 px-3 py-2 text-sm font-black uppercase text-amber-300">
+                Transparent pricing - no hidden costs
               </p>
-              <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
-                Common job prices
+              <h2 className="mt-4 text-4xl font-black tracking-normal sm:text-5xl">
+                Clear prices for common electrical jobs
               </h2>
             </div>
-            <p className="max-w-md text-sm leading-6 text-slate-600">
+            <p className="max-w-md text-base font-semibold leading-7 text-slate-800">
               Final pricing depends on site access, materials, safety
               requirements, and job scope. Call first for urgent faults.
             </p>
           </div>
-          <div className="mt-10 grid gap-3 md:grid-cols-2">
+          <div className="mt-8 grid gap-4 rounded-md border border-slate-900 bg-slate-950 p-4 text-white shadow-2xl shadow-amber-900/20 md:grid-cols-3">
+            {[
+              ["From $55", "Downlight installation"],
+              ["From $120", "General call-out"],
+              ["From $180", "Power point with RCD"],
+            ].map(([price, label]) => (
+              <div className="rounded-md bg-white p-5 text-slate-950" key={label}>
+                <p className="text-3xl font-black">{price}</p>
+                <p className="mt-2 text-sm font-bold text-slate-700">{label}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
             {pricingItems.map((price) => (
               <div
-                className="grid gap-4 rounded-md border border-slate-200 bg-slate-50 p-5 shadow-sm sm:grid-cols-[1fr_auto] sm:items-center"
+                className="grid gap-4 rounded-md border-2 border-slate-200 bg-white p-5 shadow-sm transition hover:border-amber-400 hover:shadow-lg sm:grid-cols-[1fr_auto] sm:items-center"
                 key={price.item}
               >
                 <div>
-                  <h3 className="font-black">{price.item}</h3>
+                  <h3 className="text-lg font-black">{price.item}</h3>
                   <p className="mt-2 text-sm leading-6 text-slate-600">
                     {price.note}
                   </p>
                 </div>
-                <p className="text-2xl font-black text-slate-950">
+                <p className="rounded-md bg-amber-400 px-4 py-3 text-center text-3xl font-black text-slate-950">
                   {price.price}
                 </p>
               </div>
             ))}
+          </div>
+          <div className="mt-8 rounded-md border border-slate-300 bg-white p-5">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-base font-bold leading-7 text-slate-800">
+                Price-focused and ready to book? Call Aaron and mention the job
+                type for a quick estimate.
+              </p>
+              <CallButton label={`Call ${site.phone}`} />
+            </div>
           </div>
         </div>
       </section>
