@@ -97,9 +97,12 @@ export default function HomePage() {
 
       <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-          <a className="flex items-center gap-2 font-black" href="#top">
+          <a className="flex min-w-0 items-center gap-2 font-black" href="#top">
             <BrandMark />
-            <span className="leading-tight">{site.businessName}</span>
+            <span className="leading-tight sm:hidden">ZZL Electrical</span>
+            <span className="hidden leading-tight sm:inline">
+              {site.businessName}
+            </span>
           </a>
           <nav
             aria-label="Main navigation"
@@ -118,7 +121,9 @@ export default function HomePage() {
               FAQ
             </a>
           </nav>
-          <CallButton className="hidden sm:inline-flex" label={site.phone} />
+          <div className="hidden sm:block">
+            <CallButton label={site.phone} />
+          </div>
         </div>
       </header>
 
@@ -127,9 +132,9 @@ export default function HomePage() {
         className="relative border-b border-slate-200 bg-white"
       >
         <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(250,204,21,0.18),transparent_38%),linear-gradient(180deg,transparent,rgba(15,23,42,0.04))]" />
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 sm:py-18 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-20">
+        <div className="relative mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 sm:py-18 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-20">
           <div className="flex flex-col justify-center">
-            <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-sm font-bold text-slate-900">
+            <div className="mb-4 inline-flex w-fit items-center gap-2 rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-xs font-bold text-slate-900 sm:mb-5 sm:text-sm">
               <ShieldCheck aria-hidden="true" size={17} />
               Licensed electrician based on {site.baseArea}
             </div>
@@ -137,25 +142,27 @@ export default function HomePage() {
               className="mb-5 grid w-full max-w-2xl gap-2 rounded-md border-2 border-slate-950 bg-amber-400 p-3 text-slate-950 shadow-lg shadow-amber-900/10 sm:grid-cols-[auto_1fr_auto] sm:items-center"
               href="#pricing"
             >
-              <span className="text-3xl font-black">$55</span>
+              <span className="text-4xl font-black leading-none sm:text-3xl">
+                $55
+              </span>
               <span className="text-sm font-black leading-5">
                 Downlights from $55. General call-out from $120 including the
                 first 30 minutes.
               </span>
-              <span className="rounded-md bg-slate-950 px-3 py-2 text-center text-xs font-black uppercase text-white">
+              <span className="rounded-md bg-slate-950 px-3 py-2 text-center text-xs font-black uppercase text-white sm:justify-self-end">
                 View prices
               </span>
             </a>
-            <h1 className="max-w-3xl text-4xl font-black leading-[1.05] tracking-normal text-slate-950 sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-3xl text-3xl font-black leading-[1.08] tracking-normal text-slate-950 sm:text-5xl lg:text-6xl">
               ZZL Electrical Ltd licensed Auckland electrician, 24/7 response
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-700 sm:mt-6 sm:text-lg sm:leading-8">
               Professional, reliable, and fully insured electrical services
               across Auckland. Call Aaron for fault finding, repairs, old house
               rewiring, new build electrical installation, hot water cylinder
               repairs, and emergency electrical help.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
               <CallButton label={`Call now: ${site.phone}`} />
               <a
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-slate-300 bg-white px-5 text-sm font-bold text-slate-950 transition hover:border-slate-950"
@@ -165,7 +172,7 @@ export default function HomePage() {
                 Email for a quote
               </a>
             </div>
-            <div className="mt-6 rounded-md border-2 border-amber-400 bg-slate-950 p-4 text-white shadow-xl shadow-amber-900/10">
+            <div className="mt-5 rounded-md border-2 border-amber-400 bg-slate-950 p-4 text-white shadow-xl shadow-amber-900/10 sm:mt-6">
               <div className="grid gap-3 sm:grid-cols-[auto_1fr_auto] sm:items-center">
                 <div>
                   <p className="text-xs font-black uppercase text-amber-300">
@@ -196,7 +203,7 @@ export default function HomePage() {
                 </span>
               ))}
             </div>
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            <div className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-3">
               {stats.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -219,11 +226,11 @@ export default function HomePage() {
           <div className="relative">
             <div className="mb-4 overflow-hidden rounded-md border border-slate-200 bg-white shadow-xl shadow-slate-300">
               <Image
-                alt="Electrician inspecting wiring during a service call"
-                className="h-64 w-full object-cover sm:h-72"
+                alt="Electrical wiring and construction work in progress"
+                className="h-48 w-full object-cover sm:h-72"
                 height={720}
                 priority
-                src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80"
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
                 width={1200}
               />
             </div>
@@ -561,7 +568,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="bg-white">
+      <footer className="bg-white pb-20 sm:pb-0">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-slate-600 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
           <div className="flex items-center gap-2 font-bold text-slate-950">
             <BrandMark />
@@ -575,6 +582,18 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-slate-200 bg-white p-3 shadow-2xl sm:hidden">
+        <div className="mx-auto grid max-w-md grid-cols-[1fr_auto] gap-2">
+          <a
+            className="flex min-h-12 items-center justify-center rounded-md border border-slate-300 px-3 text-sm font-black text-slate-950"
+            href="#pricing"
+          >
+            Prices from $55
+          </a>
+          <CallButton label="Call now" />
+        </div>
+      </div>
     </main>
   );
 }
