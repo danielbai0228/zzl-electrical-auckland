@@ -16,6 +16,7 @@ declare global {
       action: string | Date,
       params?: Record<string, unknown>,
     ) => void;
+    gtag_report_conversion?: (url?: string) => boolean;
   }
 }
 
@@ -32,9 +33,7 @@ export function CallButton({
     });
 
     if (site.googleAdsId && site.googleAdsConversionLabel) {
-      window.gtag?.("event", "conversion", {
-        send_to: `${site.googleAdsId}/${site.googleAdsConversionLabel}`,
-      });
+      window.gtag_report_conversion?.();
     }
   };
 

@@ -7,9 +7,9 @@ export const site = {
   baseArea: "North Shore Auckland",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.example.co.nz",
   gaId: process.env.NEXT_PUBLIC_GA_ID || "",
-  googleAdsId: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "",
+  googleAdsId: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "AW-18081238618",
   googleAdsConversionLabel:
-    process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL || "",
+    process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL || "eZM0CL6Oh7gcENqc561D",
 };
 
 const normalizedPhone = site.phone.replace(/[^\d+]/g, "");

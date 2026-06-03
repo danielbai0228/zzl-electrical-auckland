@@ -20,6 +20,26 @@ export function Tracking() {
               gtag('config', '${site.googleAdsId}');
             `}
           </Script>
+          {site.googleAdsConversionLabel ? (
+            <Script id="google-ads-conversion" strategy="afterInteractive">
+              {`
+                window.gtag_report_conversion = function(url) {
+                  var callback = function () {
+                    if (typeof(url) != 'undefined') {
+                      window.location = url;
+                    }
+                  };
+                  gtag('event', 'conversion', {
+                      'send_to': '${site.googleAdsId}/${site.googleAdsConversionLabel}',
+                      'value': 1.0,
+                      'currency': 'NZD',
+                      'event_callback': callback
+                  });
+                  return false;
+                };
+              `}
+            </Script>
+          ) : null}
         </>
       ) : null}
     </>
