@@ -33,12 +33,21 @@ NEXT_PUBLIC_SITE_URL="https://www.example.co.nz"
 NEXT_PUBLIC_GA_ID="G-XXXXXXXXXX"
 NEXT_PUBLIC_GOOGLE_ADS_ID="AW-XXXXXXXXXX"
 NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL="XXXXXXXXXXXX"
+WEB3FORMS_ACCESS_KEY="your-web3forms-access-key"
 ```
 
 Required before advertising:
 
 - Final domain in `NEXT_PUBLIC_SITE_URL`
+- `WEB3FORMS_ACCESS_KEY` for the callback form email delivery
 - Verified testimonials, project photos, or additional proof points if available
+
+## Callback Form
+
+The homepage callback form uses a Next.js Server Action and sends submissions
+through Web3Forms. Create a Web3Forms access key, add it as
+`WEB3FORMS_ACCESS_KEY` in `.env.local` and in Vercel Project Settings, then
+redeploy. The key stays server-side and is not exposed in the browser.
 
 ## Google Ads Tracking
 

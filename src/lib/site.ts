@@ -9,7 +9,8 @@ export const site = {
   gaId: process.env.NEXT_PUBLIC_GA_ID || "",
   googleAdsId: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "AW-18081238618",
   googleAdsConversionLabel:
-    process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL || "eZM0CL6Oh7gcENqc561D",
+    process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL ||
+    "yh2WCPva_sMcENqc561D",
 };
 
 const normalizedPhone = site.phone.replace(/[^\d+]/g, "");
@@ -22,34 +23,34 @@ export const phoneHref = `tel:${
 
 export const services = [
   {
-    title: "Electrical Repairs & Fault Finding",
-    copy: "Fast diagnosis for tripping circuits, power loss, faulty outlets, lights, switches, and urgent electrical faults.",
+    title: "Fault Finding & Electrical Repairs",
+    copy: "Help with tripping circuits, power loss, faulty outlets, lights, switches, and unsafe electrical faults around Auckland homes.",
   },
   {
-    title: "Old House Rewiring & Renovations",
-    copy: "Careful rewiring and upgrade work for older Auckland homes, villas, units, and renovation projects.",
+    title: "Older Homes & Renovation Wiring",
+    copy: "Careful rewiring, upgrades, and renovation electrical work for Auckland villas, units, rentals, and family homes.",
   },
   {
-    title: "New Build Electrical Installation",
-    copy: "Complete electrical installation for new homes, additions, garages, kitchens, bathrooms, and fit-outs.",
+    title: "New Builds, Additions & Fit-outs",
+    copy: "Complete electrical installation for new homes, additions, garages, kitchens, bathrooms, and small commercial fit-outs.",
   },
   {
-    title: "Hot Water Cylinder Repairs & Replacement",
-    copy: "Electrical checks, repairs, element issues, thermostat faults, and replacement support for hot water systems.",
+    title: "Hot Water Cylinder Electrical Faults",
+    copy: "Electrical checks for hot water cylinder power issues, elements, thermostats, wiring faults, and replacement support.",
   },
   {
-    title: "Emergency Electrical Repairs",
-    copy: "Responsive help when something electrical is unsafe, urgent, or stopping your home or business from operating.",
+    title: "Urgent Electrical Help",
+    copy: "Responsive support when something electrical is unsafe, urgent, or stopping your home or business from operating.",
   },
 ];
 
 export const proofPoints = [
-  "Licensed electrician",
+  "NZ licensed electrician",
   "Fully insured",
-  "Compliance certificates and paperwork provided",
-  "Transparent pricing with no hidden costs",
-  "24/7 emergency response",
-  "Responsible and reliable service",
+  "Certificates and paperwork provided",
+  "Transparent pricing before work starts",
+  "Urgent faults handled",
+  "Direct contact with Aaron",
 ];
 
 export const pricingItems = [
@@ -124,7 +125,7 @@ export const faqs = [
   {
     question: "Do you handle urgent electrical faults?",
     answer:
-      "Yes. Call first for urgent faults, power loss, tripping circuits, burning smells, or unsafe wiring concerns.",
+      "Yes. Call first for urgent faults, power loss, tripping circuits, burning smells, hot water power issues, or unsafe wiring concerns.",
   },
   {
     question: "Can you work on older Auckland homes?",
@@ -139,7 +140,7 @@ export const faqs = [
   {
     question: "Which areas do you service?",
     answer:
-      "ZZL Electrical Ltd is based on North Shore Auckland and provides Auckland-wide service.",
+      "ZZL Electrical Ltd is based on North Shore and provides Auckland-wide electrical service.",
   },
   {
     question: "Are prices transparent before work starts?",
