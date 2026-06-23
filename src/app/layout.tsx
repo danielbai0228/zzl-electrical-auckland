@@ -5,7 +5,7 @@ import "./globals.css";
 
 const title = `ZZL Electrical Ltd | Licensed Auckland Electrician | 24/7 Response`;
 const description =
-  "Call Aaron at ZZL Electrical Ltd for licensed Auckland electrical repairs, fault finding, rewiring, new build installation, hot water cylinder repairs, and 24/7 emergency response.";
+  "Call Aaron directly for licensed Auckland electrical repairs, fault finding, rewiring, hot water cylinder faults, transparent pricing, and urgent electrical help.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),

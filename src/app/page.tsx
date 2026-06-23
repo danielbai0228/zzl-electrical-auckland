@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import { BrandMark } from "@/components/BrandMark";
 import { CallButton } from "@/components/CallButton";
+import { CallbackForm } from "@/components/CallbackForm";
 import {
   faqs,
   phoneHref,
@@ -23,33 +24,30 @@ import {
 } from "@/lib/site";
 
 const stats = [
-  { label: "Based on North Shore", icon: MapPin },
-  { label: "Licensed and fully insured", icon: ShieldCheck },
-  { label: "24/7 response available", icon: Clock3 },
+  { label: "North Shore based, Auckland-wide", icon: MapPin },
+  { label: "NZ licensed and fully insured", icon: ShieldCheck },
+  { label: "Direct response from Aaron", icon: Clock3 },
 ];
 
 const trustPoints = [
-  "Professional, reliable service for small jobs and full projects",
-  "Transparent pricing with no hidden costs",
-  "Compliance certificates and paperwork provided",
-  "Residential repairs, rewiring, renovations, and new build electrical work",
+  "Local Auckland electrician for homes, rentals, renovations, and small business jobs",
+  "Clear pricing before work starts, with common job prices shown upfront",
+  "Certificates and required paperwork provided for applicable electrical work",
+  "Direct contact with Aaron, so customers do not feel passed around",
 ];
 
-const reviews = [
+const customerPriorities = [
   {
-    quote:
-      "Fast response, clear pricing, and careful electrical fault finding for our home.",
-    name: "North Shore homeowner",
+    quote: "You know who you are calling and what the next step is.",
+    name: "Direct communication",
   },
   {
-    quote:
-      "Reliable support for renovation wiring, with paperwork handled properly.",
-    name: "Renovation client",
+    quote: "Common job prices are shown upfront before customers enquire.",
+    name: "Transparent pricing",
   },
   {
-    quote:
-      "Straightforward communication and practical help with our hot water cylinder power issue.",
-    name: "Auckland property owner",
+    quote: "Licensed, insured work with paperwork provided when required.",
+    name: "NZ compliance focus",
   },
 ];
 
@@ -115,7 +113,7 @@ export default function HomePage() {
               Areas
             </a>
             <a className="hover:text-slate-950" href="#pricing">
-              Pricing
+              Prices
             </a>
             <a className="hover:text-slate-950" href="#faq">
               FAQ
@@ -136,7 +134,7 @@ export default function HomePage() {
           <div className="flex flex-col justify-center">
             <div className="mb-4 inline-flex w-fit items-center gap-2 rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-xs font-bold text-slate-900 sm:mb-5 sm:text-sm">
               <ShieldCheck aria-hidden="true" size={17} />
-              Licensed electrician based on {site.baseArea}
+              North Shore based Auckland electrician
             </div>
             <a
               className="mb-5 grid w-full max-w-2xl gap-2 rounded-md border-2 border-slate-950 bg-amber-400 p-3 text-slate-950 shadow-lg shadow-amber-900/10 sm:grid-cols-[auto_1fr_auto] sm:items-center"
@@ -146,50 +144,53 @@ export default function HomePage() {
                 $55
               </span>
               <span className="text-sm font-black leading-5">
-                Downlights from $55. General call-out from $120 including the
-                first 30 minutes.
+                Common job prices shown upfront. General call-out from $120
+                including the first 30 minutes.
               </span>
               <span className="rounded-md bg-slate-950 px-3 py-2 text-center text-xs font-black uppercase text-white sm:justify-self-end">
-                View prices
+                Check prices
               </span>
             </a>
             <h1 className="max-w-3xl text-3xl font-black leading-[1.08] tracking-normal text-slate-950 sm:text-5xl lg:text-6xl">
-              ZZL Electrical Ltd licensed Auckland electrician, 24/7 response
+              Need an electrician in Auckland? Call Aaron directly
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-slate-700 sm:mt-6 sm:text-lg sm:leading-8">
-              Professional, reliable, and fully insured electrical services
-              across Auckland. Call Aaron for fault finding, repairs, old house
-              rewiring, new build electrical installation, hot water cylinder
-              repairs, and emergency electrical help.
+              Licensed and insured electrical work for Auckland homes,
+              renovations, rentals, and small businesses. Get help with fault
+              finding, repairs, older home rewiring, switchboard upgrades, hot
+              water cylinder faults, and urgent electrical issues.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
-              <CallButton label={`Call now: ${site.phone}`} />
+              <CallButton label={`Call Aaron: ${site.phone}`} />
               <a
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-slate-300 bg-white px-5 text-sm font-bold text-slate-950 transition hover:border-slate-950"
                 href={`mailto:${site.email}`}
               >
                 <Mail aria-hidden="true" size={18} />
-                Email for a quote
+                Send job details
               </a>
+            </div>
+            <div className="mt-6 lg:hidden">
+              <CallbackForm />
             </div>
             <div className="mt-5 rounded-md border-2 border-amber-400 bg-slate-950 p-4 text-white shadow-xl shadow-amber-900/10 sm:mt-6">
               <div className="grid gap-3 sm:grid-cols-[auto_1fr_auto] sm:items-center">
                 <div>
                   <p className="text-xs font-black uppercase text-amber-300">
-                    Transparent prices
+                    Know the price range
                   </p>
-                  <p className="mt-1 text-2xl font-black">$55 downlights</p>
+                  <p className="mt-1 text-2xl font-black">Prices upfront</p>
                 </div>
                 <p className="text-sm leading-6 text-slate-200">
-                  General call-out from <strong>$120</strong> including the
-                  first 30 minutes. Common job prices are listed below before
-                  you call.
+                  Downlights from <strong>$55</strong>. General call-out from{" "}
+                  <strong>$120</strong> including the first 30 minutes. Common
+                  prices are listed before you call.
                 </p>
                 <a
                   className="inline-flex min-h-11 items-center justify-center rounded-md bg-amber-400 px-4 text-sm font-black text-slate-950 transition hover:bg-amber-300"
                   href="#pricing"
                 >
-                  See prices
+                  View prices
                 </a>
               </div>
             </div>
@@ -223,7 +224,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative hidden lg:block">
             <div className="mb-4 overflow-hidden rounded-md border border-slate-200 bg-white shadow-xl shadow-slate-300">
               <Image
                 alt="Electrical wiring and construction work in progress"
@@ -234,45 +235,7 @@ export default function HomePage() {
                 width={1200}
               />
             </div>
-            <div className="rounded-md border border-slate-200 bg-slate-950 p-6 text-white shadow-2xl shadow-slate-300">
-              <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-5">
-                <div>
-                  <p className="text-sm font-bold text-amber-300">
-                    Need an electrician?
-                  </p>
-                  <p className="mt-1 text-2xl font-black">Call Aaron first</p>
-                </div>
-                <BrandMark size="lg" />
-              </div>
-              <div className="grid gap-4 py-6">
-                {[
-                  "Power outage or tripping circuits",
-                  "Faulty sockets, switches, or lights",
-                  "Old wiring or renovation electrical work",
-                  "Hot water cylinder electrical faults",
-                ].map((item) => (
-                  <div className="flex items-start gap-3" key={item}>
-                    <CheckCircle2
-                      aria-hidden="true"
-                      className="mt-0.5 shrink-0 text-amber-300"
-                      size={20}
-                    />
-                    <span className="text-sm leading-6 text-slate-100">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <CallButton
-                className="w-full"
-                label={`Tap to call ${site.phone}`}
-                variant="primary"
-              />
-              <p className="mt-4 text-center text-xs leading-5 text-slate-300">
-                Available 24/7 for emergency electrical response across
-                Auckland.
-              </p>
-            </div>
+            <CallbackForm />
           </div>
         </div>
       </section>
@@ -284,7 +247,7 @@ export default function HomePage() {
               Electrical services
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
-              Practical help for homes, renovations, and urgent faults
+              High-intent electrical jobs Auckland customers search for
             </h2>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -318,12 +281,12 @@ export default function HomePage() {
                 Compliance and trust
               </p>
               <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
-                Licensed, insured, and paperwork provided
+                Built around what NZ customers check before booking
               </h2>
               <p className="mt-5 text-base leading-8 text-slate-700">
-                From small jobs to full electrical projects, ZZL Electrical Ltd
-                focuses on professional service, clear communication, and peace
-                of mind.
+                Electrical work needs trust. Licence, insurance, paperwork,
+                clear pricing, and direct contact are all made clear before you
+                book.
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -355,8 +318,9 @@ export default function HomePage() {
               Clear, careful electrical work without the runaround
             </h2>
             <p className="mt-5 text-base leading-8 text-slate-700">
-              Call Aaron directly for a practical answer, clear next steps, and
-              transparent pricing before work proceeds.
+              When you are comparing electricians, speed, trust, and price
+              clarity matter. Call Aaron directly for practical next steps
+              before work proceeds.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -385,11 +349,12 @@ export default function HomePage() {
                 Service areas
               </p>
               <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
-                Electrician services across Auckland
+                North Shore based, servicing Auckland-wide
               </h2>
               <p className="mt-5 text-base leading-8 text-slate-700">
-                ZZL Electrical Ltd is based on North Shore Auckland and provides
-                Auckland-wide electrical service.
+                ZZL Electrical Ltd is based on North Shore and provides
+                Auckland-wide electrical service for homes, rentals,
+                renovations, and small businesses.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -417,7 +382,7 @@ export default function HomePage() {
                 Transparent pricing - no hidden costs
               </p>
               <h2 className="mt-4 text-4xl font-black tracking-normal sm:text-5xl">
-                Clear prices for common electrical jobs
+                Clear prices before the phone call
               </h2>
             </div>
             <p className="max-w-md text-base font-semibold leading-7 text-slate-800">
@@ -458,8 +423,8 @@ export default function HomePage() {
           <div className="mt-8 rounded-md border border-slate-300 bg-white p-5">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-base font-bold leading-7 text-slate-800">
-                Price-focused and ready to book? Call Aaron and mention the job
-                type for a quick estimate.
+                Comparing electricians? Call Aaron and mention the job type for
+                a practical price range before booking.
               </p>
               <CallButton label={`Call ${site.phone}`} />
             </div>
@@ -472,18 +437,19 @@ export default function HomePage() {
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <div>
               <p className="text-sm font-black uppercase text-amber-600">
-                Reviews
+                Customer decision points
               </p>
               <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
-                Customer feedback
+                Make it easy to choose quickly
               </h2>
             </div>
             <p className="max-w-md text-sm leading-6 text-slate-600">
-              Replace these with verified customer reviews when available.
+              Clear information helps you decide quickly before calling or
+              requesting a call back.
             </p>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {reviews.map((review) => (
+            {customerPriorities.map((review) => (
               <figure
                 className="rounded-md border border-slate-200 bg-slate-50 p-6"
                 key={review.name}
@@ -543,12 +509,11 @@ export default function HomePage() {
               Contact
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
-              Need electrical help in Auckland?
+              Ready to speak with an Auckland electrician?
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
-              Call Aaron at ZZL Electrical Ltd for faults, rewiring, new build
-              electrical installation, hot water cylinder electrical issues, and
-              emergency electrical repairs.
+              Call Aaron directly, send the job details, or request a call back.
+              For urgent electrical faults, calling is the fastest option.
             </p>
           </div>
           <div className="rounded-md border border-white/10 bg-white/5 p-6">
@@ -563,6 +528,12 @@ export default function HomePage() {
             >
               <Mail aria-hidden="true" size={18} />
               {site.email}
+            </a>
+            <a
+              className="mt-3 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md border border-white/20 px-5 text-sm font-bold text-white transition hover:border-white"
+              href="#top"
+            >
+              Request a call back
             </a>
           </div>
         </div>
@@ -587,9 +558,9 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-md grid-cols-[1fr_auto] gap-2">
           <a
             className="flex min-h-12 items-center justify-center rounded-md border border-slate-300 px-3 text-sm font-black text-slate-950"
-            href="#pricing"
+            href="#top"
           >
-            Prices from $55
+            Call back
           </a>
           <CallButton label="Call now" />
         </div>
