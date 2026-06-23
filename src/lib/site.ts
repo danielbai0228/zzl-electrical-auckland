@@ -11,6 +11,7 @@ export const site = {
   googleAdsConversionLabel:
     process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL ||
     "yh2WCPva_sMcENqc561D",
+  web3FormsAccessKey: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "",
 };
 
 const normalizedPhone = site.phone.replace(/[^\d+]/g, "");
